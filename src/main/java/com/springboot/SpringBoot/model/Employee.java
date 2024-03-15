@@ -1,14 +1,12 @@
 package com.springboot.SpringBoot.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
-@Entity
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="Employee")
 public class Employee {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
     private String name;
     private String email;

@@ -13,8 +13,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class EmployeeController {
 
-    @Autowired
     private EmployeeService employeeService;
+
+    @Autowired
+    EmployeeController(EmployeeService employeeService){
+        this.employeeService = employeeService;
+    }
+
+    @Autowired
+    public void setEmployeeService(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
 
     @GetMapping("/")
     public String viewHomePage(Model model) {
@@ -47,4 +56,5 @@ public class EmployeeController {
         employeeService.deleteViaId(id);
         return "redirect:/";
     }
+
 }
