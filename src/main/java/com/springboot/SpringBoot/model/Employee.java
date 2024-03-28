@@ -2,10 +2,14 @@ package com.springboot.SpringBoot.model;
 
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection="Employee")
 public class Employee {
+
+    @Transient
+    public static final String SEQUENCE_NAME = "database_sequences";
     @Id
     private long id;
     private String name;
